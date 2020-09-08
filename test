@@ -1,0 +1,7 @@
+this is a test file for branch
+
+git branch (branchname)
+git checkout (branchname)
+git add (file)
+git commit -m "message"
+git push orgin (branchname)
