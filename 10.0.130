@@ -1,0 +1,33 @@
+#%Module -*- tcl -*-
+#
+# Nvidia compiler
+# 
+
+set version 10.0.130
+module-whatis   "CUDA toolkit $version"
+
+if { [ module-info mode load ] } {
+            if { ! [ is-loaded gcc ] } {
+                                    module load gcc
+                                                            }
+}
+
+prereq gcc
+
+proc ModulesHelp {} {
+       puts stderr "\tThis module configures your environment for nvidia compilers"
+}
+
+
+set topdir /usr/local/cuda
+
+setenv          CUDA_GCC_DIR    /scratch/software/gcc/5.4.0/bin
+setenv          CUDADIR         $topdir
+prepend-path    CPATH           $topdir/include
+prepend-path    PATH            $topdir/bin
+prepend-path    MANPATH         $topdir/man
+prepend-path    LD_LIBRARY_PATH $topdir/lib64
+#prepend-path    LD_LIBRARY_PATH /usr/lib/nvidia-387
+prepend-path    LIBRARY_PATH    $topdir/lib64
+
+
