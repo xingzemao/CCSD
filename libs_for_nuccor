@@ -27,7 +27,7 @@ all libs are built from source here
    the latest version hdf5-1.12.0 is used
    gunzip -c hdf5-1.12.0.tar.gz | tar xf -
    cd hdf5-1.12.0
-   ./configure --prefix=/usr/local/hdf5/$path, (path=/1.12.0/gcc-9.3.0/ in this case)
+   ./configure --prefix=/usr/local/hdf5/$path  --enable-fortran , (path=/1.12.0/gcc-9.3.0/ in this case)
    make 
    make install
    (there is also instruction about installation at <http://micro.stanford.edu/wiki/Install_HDF5>)
