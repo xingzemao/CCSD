@@ -1,0 +1,45 @@
+Gcc-9.3.0 is the compiler used to compile nuccor
+Install:
+  method 1) sudo apt-get install gcc, but a follow up needed to check whether version 9.3.0 is installed (gcc --version)
+  method 2) build from source file:
+      pro: can specify installed path and easy for version control
+      con: compile takes super long time
+      a through introduction for installation can be found here:
+      https://gist.github.com/yosoufe/ad45f45c10fe08abecbf53000d0d199f
+
+There are three files needed to be installed to use nuccor: openblas, openmpi,hdf5
+all libs are built from source here
+1) openmpi:
+   download from https://www.open-mpi.org/software/ompi/v4.0/
+   gunzip -c openmpi-4.0.4.tar.gz | tar xf -
+   cd openmpi-4.0.4
+   ./configure --prefix=/usr/local/openmpi/$path.  (path is set as "4.0.4/gcc-9.3.0/" for this case)   
+   make all install
+2) openblas:
+   download from https://github.com/xianyi/OpenBLAS/releases
+   we chose openblas-0.3.10
+   gunzip -c openblas-0.3.10.tar.gz | tar xf -
+   cd openblas-0.3.10
+   make 
+   make install PREFIX=/usr/local/path
+3) hdf5:
+   download from https://www.hdfgroup.org/solutions/hdf5/
+   the latest version hdf5-1.12.0 is used
+   gunzip -c hdf5-1.12.0.tar.gz | tar xf -
+   cd hdf5-1.12.0
+   ./configure --prefix=/usr/local/hdf5/$path, (path=/1.12.0/gcc-9.3.0/ in this case)
+   make 
+   make install
+   (there is also instruction about installation at <http://micro.stanford.edu/wiki/Install_HDF5>)
+   
+   
+The last step is set up environment module for better version control of the loaded libs
+   The source file can be found here: <http://modules.sourceforge.net>
+   Here (<https://modules.readthedocs.io/en/latest/>) is a good reference for installation
+   Installation:
+   ./configure
+   make 
+   make install
+   
+   
+   
